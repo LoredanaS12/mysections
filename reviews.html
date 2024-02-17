@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../sass/reviews.scss" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial scale-1.0">
+
+    <title>Reviews</title>
+</head>
+<body>
+    <section class="rev">
+        <h2><span>CHOCOLATE</span> IS LOVED</h2>
+        <div class="slider">
+            <div class="cards">
+                <div class="card">
+                    <img src="/src/images/victoria.png" alt="victoria" />
+                    <div class="card-content">
+                        <h3>Victoria Dobrzhanska</h3>
+                        <p>
+                            I love this chocolate bar. Perfect combination of light crispy
+                            wafer, covered in a thin layer chocolate.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/src/images/nazar.png" alt="nazar" />
+                    <div class="card-content">
+                        <h3>Nazar Babenko</h3>
+                        <p>
+                        This chocolate confection is a delight! A delight! The wafer is light and crisp, the hazelnut cream is smooth, and the
+                        chocolate is good.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/src/images/olena.png" alt="olena" />
+                    <div class="card-content">
+                        <h3>Olena Kampusch</h3>
+                        <p>
+                        Chocolate is a family favourite treat. Love the delicious smooth chocolate and the creaminess inside. The wafer is soft
+                        but crunchy.
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/src/images/natalia.png" alt="natalia" />
+                    <div class="card-content">
+                        <h3>Natalia Sus</h3>
+                        <p>
+                        The chocolate assortment was delicious. Both dark and milk chocolate pieces were smooth and just right on the sweetness
+                        level.
+                        </p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/src/images/danilo.png" alt="danilo" />
+                    <div class="card-content">
+                        <h3>Danilo Nottingham</h3>
+                        <p>
+                        This is delicious. It so rich and flavorful you don’t need to use as many. I love topping an apple with almond butter
+                        and these chips for a snack.
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="/src/images/irina.png" alt="irina" />
+                    <div class="card-content">
+                        <h3>Irina Tydnyuk</h3>
+                        <p>
+                        This is simply the best chocolate around, and I'm just thrilled to support a local company! Best local chocolate - world
+                        class.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--Carousel section-->
+            <div class="indicator">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <button id="open" type="button" class="orange"  onclick="openModal()">Leave a review</button>
+            </div>
+    </section>
+</body>
+<!--Carousel Script Java-->
+<script>
+    const slider = document.querySelector(".slider");
+    const cards = document.querySelector(".cards");
+    const cardWidth = document.querySelector(".card").offsetWidth;
+    const dots = document.querySelectorAll(".dot");
+
+    let currentIndex = 0;
+
+    function showCards() {
+        cards.style.transform = `translateX(-${currentIndex * (cardWidth + 20)
+            }px)`;
+        updateDots();
+    }
+
+    function nextCard() {
+        if (currentIndex < 2) {
+            currentIndex++;
+            showCards();
+        }
+    }
+
+    function prevCard() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            showCards();
+        }
+    }
+
+    function goToCard(index) {
+        currentIndex = index;
+        showCards();
+    }
+
+    function updateDots() {
+        dots.forEach((dot, index) => {
+            dot.classList.toggle("active", index === currentIndex);
+        });
+    }
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => goToCard(index));
+    });
+
+    document.addEventListener("DOMContentLoaded", showCards);
+</script>
+
+
+</html>
